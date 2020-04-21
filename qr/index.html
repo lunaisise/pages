@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>QR Code Maker</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no", minimal-ui>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="icon" type="image/x-icon" href="qr_apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="qr_apple-touch-icon.png">
+<link rel="stylesheet" href="css/noto_sans.css">
+<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+<header>
+  <h1>QR Code Maker</h1>
+</header>
+
+<section id="qr">
+  <div id="qrcode"></div>
+  <p id="qr-setting">QR Code Maker</p>
+</section>
+
+<section id="inputs">
+  <div>
+    <button id="knob" data-status="open">∨</button>
+  </div>
+  <div>
+    <label for="qr-text">text</label>
+    <input type="text" id="qr-text">
+  </div>
+  <div>
+    <label for="qr-size">size</label>
+    <input type="number" id="qr-size" min="64" max="512" value="128">
+    <input type="range" id="qr-range" min="64" max="512" value="128">
+  </div>
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/encoding-japanese/1.0.29/encoding.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+<script src="js/index.js"></script>
+
+</body>
+</html>
