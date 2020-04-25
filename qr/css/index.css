@@ -1,10 +1,10 @@
 * {
   box-sizing: border-box;
+  color: #333;
+  font-family: 'Noto Sans JP', -apple-system, sans-serif;
 }
 
 body {
-  color: #333;
-  font-family: 'Noto Sans CJK jp';
   margin: 0;
 }
 
