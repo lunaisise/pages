@@ -19,91 +19,110 @@ window.addEventListener('DOMContentLoaded', () => {
         return isiPhone && (isiPhoneXorXs || isiPhoneXsMax || isiPhoneXR);
     })();
 
-    function getCookie() {
-        const qrText = $.cookie('qr-text');
-        if (qrText !== undefined && qrText.length !== 0) {
-            $('#qr-setting').text(qrText);
-            $('#qr-text').val(qrText);
-        }
+    const qrTextElem = document.querySelector('#qr-text');
+    const qrText = () => {
+        const text = qrTextElem.value;
+        document.querySelector('#qr-setting').textContent = text;
+        Cookies.set('qr-text', text, {expires: 7, path: ''});
+        return text;
+    };
+    const qrSizeElem = document.querySelector('#qr-size');
+    const qrRangeElem = document.querySelector('#qr-range');
+    const qrSize = () => {
+        const size = qrSizeElem.value;
+        qrRangeElem.value = size;
+        Cookies.set('qr-size', size, {expires: 7, path: ''});
+        return size;
+    };
 
-        const qrSize = $.cookie('qr-size');
-        if (qrSize !== undefined) {
-            $('#qr-size').val(qrSize);
-            $('#qr-range').val(qrSize);
-        }
-    }
-
-    function setCookie() {
-        $.cookie('qr-text', $('#qr-text').val(), {expires: 7});
-        $.cookie('qr-size', $('#qr-size').val(), {expires: 7});
-    }
+    let qrcode;
 
     function makeQrCode() {
-        const qrText = Encoding.convert($('#qr-text').val(), 'SJIS');
-        const qrSize = $('#qr-size').val();
-        $('#qrcode').empty();
-        $('#qrcode').qrcode({
-            height: qrSize,
-            width: qrSize,
-            text: qrText
+        const text = qrText();
+        const size = qrSize();
+        const qrcodeElem = document.querySelector('#qrcode');
+        qrcodeElem.textContent = '';
+        qrcode = new QRCode(qrcodeElem, {
+            text: text,
+            width: size,
+            height: size,
+            correctLevel: QRCode.CorrectLevel.H
         });
-        const padding = qrSize / 25 * 4;
-        $('#qrcode').css('padding', `${padding}px`);
-        const paddingBottom = padding - 5;
-        $('#qrcode').css('padding-bottom', `${paddingBottom}px`);
+        const padding = size / 25 * 4;
+        qrcodeElem.style.padding = `${padding}px`;
+    }
+
+    function init() {
+        const textCookie = Cookies.get('qr-text');
+        if (textCookie !== undefined) {
+            qrTextElem.value = textCookie;
+        }
+        const sizeCookie = Cookies.get('qr-size');
+        if (sizeCookie !== undefined) {
+            qrSizeElem.value = sizeCookie;
+        }
     }
 
     function initRange() {
-        const bodyWidth = $('body').innerWidth();
+        const bodyWidth = document.documentElement.clientWidth;
         const maxWidth = bodyWidth * 25 / 34;
-        $('#qr-size').attr('max', maxWidth);
-        $('#qr-range').attr('max', maxWidth);
-        const rangeVal = $('#qr-size').val();
+        qrSizeElem.setAttribute('max', maxWidth);
+        qrRangeElem.setAttribute('max', maxWidth);
+        const rangeVal = qrSizeElem.value;
         if (maxWidth < rangeVal) {
-            $('#qr-size').val(maxWidth);
-            $('#qr-range').val(maxWidth);
+            qrSizeElem.value = maxWidth;
+            qrRangeElem.value = maxWidth;
         }
     }
 
     if (isiPhoneXSeries) {
-        $('#inputs').css('bottom', '34pt');
+        document.querySelector('#inputs').style.bottom = '34pt';
     }
 
-    getCookie();
+    init();
 
     initRange();
     makeQrCode();
 
-    $(window).on('resize', function() {
+    window.addEventListener('resize', () => {
         initRange();
         makeQrCode();
     });
 
-    $('#knob').on('click', function() {
-        if ($(this).data('status') == 'open') {
-            $('#inputs').css('height', 'calc(2rem + 1px)');
-            $(this).data('status', 'close').text('∧');
+    const knobElem = document.querySelector('#knob');
+    knobElem.addEventListener('click', () => {
+        if (knobElem.dataset.status === 'open') {
+            document.querySelector('#inputs').style.height = 'calc(2rem + 1px)';
+            knobElem.dataset.status = 'close';
+            knobElem.textContent = '∧';
         } else {
-            $('#inputs').css('height', '190px');
-            $(this).data('status', 'open').text('∨');
+            document.querySelector('#inputs').style.height = '190px';
+            knobElem.dataset.status = 'open';
+            knobElem.textContent = '∨';
         }
     });
 
-    $('#qr-text').on('change, keyup', function() {
-        $('#qr-setting').text($(this).val());
+    const qrTextfunc = () => {
+        const m = qrTextElem.value.match(/([\s\S]*[^!-~\s])[!-~]+$/);
+        if (m) {
+            qrTextElem.value = m[1];
+            alert('2バイト文字に続けて1バイト文字を入力することはできません。');
+        }
         makeQrCode();
-        setCookie();
-    });
+    };
+    qrTextElem.addEventListener('change', () => {qrTextfunc();});
+    qrTextElem.addEventListener('keyup', () => {qrTextfunc();});
 
-    $('#qr-size').on('change, input', function() {
-        $('#qr-range').val($(this).val());
+    const qrSizefunc = () => {
         makeQrCode();
-        setCookie();
-    });
+    };
+    qrSizeElem.addEventListener('change', () => {qrSizefunc();});
+    qrSizeElem.addEventListener('input', () => {qrSizefunc();});
 
-    $('#qr-range').on('change, input', function() {
-        $('#qr-size').val($(this).val());
+    const qrRangefunc = () => {
+        qrSizeElem.value = qrRangeElem.value;
         makeQrCode();
-        setCookie();
-    });
+    };
+    qrRangeElem.addEventListener('change', () => {qrRangefunc();});
+    qrRangeElem.addEventListener('input', () => {qrRangefunc();});
 });
