@@ -1,0 +1,124 @@
+main h2 {
+    margin: 1rem 0 0;
+    text-align: center;
+}
+
+#outer {
+    background-color: #000;
+    border-radius: 6rem;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0 auto;
+    padding: 4rem;
+    width: 12rem;
+}
+
+#outer > li {
+    background-color: #fff;
+    border-radius: 100%;
+    box-shadow: 0 0 1.5rem 0 #000 inset;
+    height: 4rem;
+    width: 4rem;
+}
+
+#outer > li:nth-child(n + 2) {
+    margin-top: .5rem;
+}
+
+#outer > .r {
+    box-shadow:
+        0 0 2.5rem 0 rgb(255, 40, 0),
+        0 0 2.5rem 0 rgb(255, 40, 0) inset;
+}
+
+#outer > .y {
+    box-shadow:
+        0 0 2.5rem 0 rgb(250, 245, 0),
+        0 0 2.5rem 0 rgb(250, 245, 0) inset;
+}
+
+#outer > .g {
+    box-shadow:
+        0 0 2.5rem 0 rgb(53, 161, 107),
+        0 0 2.5rem 0 rgb(53, 161, 107) inset;
+}
+
+#outer > .yf {
+    animation: .75s linear 0s infinite yellow_flicker;
+}
+
+@keyframes yellow_flicker {
+    0% {
+        box-shadow:
+            0 0 2.5rem 0 rgb(250, 245, 0),
+            0 0 2.5rem 0 rgb(250, 245, 0) inset;
+    }
+    50% {
+        box-shadow: 0 0 1.5rem 0 #000 inset;
+    }
+    100% {
+        box-shadow:
+            0 0 2.5rem 0 rgb(250, 245, 0),
+            0 0 2.5rem 0 rgb(250, 245, 0) inset;
+    }
+}
+
+#outer > .gf {
+    animation: .75s linear 0s infinite green_flicker;
+}
+
+@keyframes green_flicker {
+    0% {
+        box-shadow:
+            0 0 2.5rem 0 rgb(53, 161, 107),
+            0 0 2.5rem 0 rgb(53, 161, 107) inset;
+    }
+    50% {
+        box-shadow: 0 0 1.5rem 0 #000 inset;
+    }
+    100% {
+        box-shadow:
+            0 0 2.5rem 0 rgb(53, 161, 107),
+            0 0 2.5rem 0 rgb(53, 161, 107) inset;
+    }
+}
+
+#limitation {
+    text-align: center;
+}
+
+#light-aspect,
+#light-type {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+main [type="radio"] {
+    display: none;
+}
+
+#light-aspect label,
+#light-type label {
+    background-color: #ddd;
+    border: 1px solid #aaa;
+    cursor: pointer;
+    display: block;
+    padding: .5rem;
+    text-align: center;
+}
+
+#light-aspect [type="radio"]:disabled + label,
+#light-type [type="radio"]:disabled + label {
+    background-color: rgba(255, 255, 255, .05);
+    backdrop-filter: blur(2px);
+    border-color: #ccc;
+    color: #ddd;
+    cursor: default;
+}
+
+#light-aspect [type="radio"]:checked + label,
+#light-type [type="radio"]:checked + label {
+    border-color: rgb(53, 161, 107);
+}

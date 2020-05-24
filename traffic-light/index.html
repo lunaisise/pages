@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no", minimal-ui>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>鉄道信号機シミュレーター | 信号機シミュレーター | Lunaisise Pages</title>
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/index.css">
+<link rel="icon" type="image/x-icon" href="traffic-light_icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="traffic-light_apple-touch-icon.png">
+</head>
+<body>
+
+<header>
+  <h1>鉄道信号機シミュレーター</h1>
+</header>
+
+<main>
+  <ul id="outer">
+    <li data-num="1"></li>
+    <li data-num="2"></li>
+    <li data-num="3"></li>
+    <li data-num="4"></li>
+    <li data-num="5"></li>
+    <li data-num="6"></li>
+  </ul>
+  <p id="limitation"></p>
+
+  <div id="inputs">
+    <input type="checkbox" id="knob" checked>
+    <label for="knob"></label>
+    <div>
+      <h2>現示</h2>
+      <ul id="light-aspect">
+        <li><input type="radio" name="aspect" id="r"><label for="r">停止</label></li>
+        <li><input type="radio" name="aspect" id="yy"><label for="yy">警戒</label></li>
+        <li><input type="radio" name="aspect" id="y"><label for="y">注意</label></li>
+        <li><input type="radio" name="aspect" id="yg"><label for="yg">減速</label></li>
+        <li><input type="radio" name="aspect" id="ygf"><label for="ygf">抑速</label></li>
+        <li><input type="radio" name="aspect" id="g" checked><label for="g">進行</label></li>
+        <li><input type="radio" name="aspect" id="gg"><label for="gg">高速進行</label></li>
+      </ul>
+
+      <h2>現示方式</h2>
+      <ul id="light-type">
+        <li><input type="radio" name="type" id="double" data-num="2"><label for="double">二灯式</label></li>
+        <li><input type="radio" name="type" id="triple" data-num="3" checked><label for="triple">三灯式</label></li>
+        <li><input type="radio" name="type" id="quadruple-a" data-num="4"><label for="quadruple-a">四灯式(A)</label></li>
+        <li><input type="radio" name="type" id="quadruple-b" data-num="4"><label for="quadruple-b">四灯式(B)</label></li>
+        <li><input type="radio" name="type" id="quintuple-a" data-num="5"><label for="quintuple-a">五灯式(A)</label></li>
+        <li><input type="radio" name="type" id="quintuple-b" data-num="5"><label for="quintuple-b">五灯式(B)</label></li>
+        <li><input type="radio" name="type" id="sextuple" data-num="6"><label for="sextuple">六灯式</label></li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<script src="js/index.js"></script>
+
+</body>
+</html>
