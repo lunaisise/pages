@@ -28,20 +28,20 @@ main h2 {
 
 #outer > .r {
     box-shadow:
-        0 0 2.5rem 0 rgb(255, 40, 0),
-        0 0 2.5rem 0 rgb(255, 40, 0) inset;
+        0 0 3rem 0 rgb(255, 40, 0),
+        0 0 3rem 0 rgb(255, 40, 0) inset;
 }
 
 #outer > .y {
     box-shadow:
-        0 0 2.5rem 0 rgb(250, 245, 0),
-        0 0 2.5rem 0 rgb(250, 245, 0) inset;
+        0 0 3rem 0 rgb(250, 245, 0),
+        0 0 3rem 0 rgb(250, 245, 0) inset;
 }
 
 #outer > .g {
     box-shadow:
-        0 0 2.5rem 0 rgb(53, 161, 107),
-        0 0 2.5rem 0 rgb(53, 161, 107) inset;
+        0 0 3rem 0 rgb(53, 161, 107),
+        0 0 3rem 0 rgb(53, 161, 107) inset;
 }
 
 #outer > .yf {
@@ -51,16 +51,16 @@ main h2 {
 @keyframes yellow_flicker {
     0% {
         box-shadow:
-            0 0 2.5rem 0 rgb(250, 245, 0),
-            0 0 2.5rem 0 rgb(250, 245, 0) inset;
+            0 0 3rem 0 rgb(250, 245, 0),
+            0 0 3rem 0 rgb(250, 245, 0) inset;
     }
     50% {
         box-shadow: 0 0 1.5rem 0 #000 inset;
     }
     100% {
         box-shadow:
-            0 0 2.5rem 0 rgb(250, 245, 0),
-            0 0 2.5rem 0 rgb(250, 245, 0) inset;
+            0 0 3rem 0 rgb(250, 245, 0),
+            0 0 3rem 0 rgb(250, 245, 0) inset;
     }
 }
 
@@ -71,16 +71,16 @@ main h2 {
 @keyframes green_flicker {
     0% {
         box-shadow:
-            0 0 2.5rem 0 rgb(53, 161, 107),
-            0 0 2.5rem 0 rgb(53, 161, 107) inset;
+            0 0 3rem 0 rgb(53, 161, 107),
+            0 0 3rem 0 rgb(53, 161, 107) inset;
     }
     50% {
         box-shadow: 0 0 1.5rem 0 #000 inset;
     }
     100% {
         box-shadow:
-            0 0 2.5rem 0 rgb(53, 161, 107),
-            0 0 2.5rem 0 rgb(53, 161, 107) inset;
+            0 0 3rem 0 rgb(53, 161, 107),
+            0 0 3rem 0 rgb(53, 161, 107) inset;
     }
 }
 
