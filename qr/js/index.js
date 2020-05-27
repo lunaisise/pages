@@ -1,11 +1,11 @@
 if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js').then((registration) => {
-            console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        }, (error) => {
-            console.error('ServiceWorker registration failed: ', error);
+    navigator.serviceWorker.register('./sw.js', {scope: './'})
+        .then(reg => {
+            console.log('Registration succeeded. Scope is ' + reg.scope);
+        })
+        .catch(error => {
+            console.log('Registration failed with ' + error);
         });
-    });
 }
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -110,19 +110,31 @@ window.addEventListener('DOMContentLoaded', () => {
         }
         makeQrCode();
     };
-    qrTextElem.addEventListener('change', () => {qrTextfunc();});
-    qrTextElem.addEventListener('keyup', () => {qrTextfunc();});
+    qrTextElem.addEventListener('change', () => {
+        qrTextfunc();
+    });
+    qrTextElem.addEventListener('keyup', () => {
+        qrTextfunc();
+    });
 
     const qrSizefunc = () => {
         makeQrCode();
     };
-    qrSizeElem.addEventListener('change', () => {qrSizefunc();});
-    qrSizeElem.addEventListener('input', () => {qrSizefunc();});
+    qrSizeElem.addEventListener('change', () => {
+        qrSizefunc();
+    });
+    qrSizeElem.addEventListener('input', () => {
+        qrSizefunc();
+    });
 
     const qrRangefunc = () => {
         qrSizeElem.value = qrRangeElem.value;
         makeQrCode();
     };
-    qrRangeElem.addEventListener('change', () => {qrRangefunc();});
-    qrRangeElem.addEventListener('input', () => {qrRangefunc();});
+    qrRangeElem.addEventListener('change', () => {
+        qrRangefunc();
+    });
+    qrRangeElem.addEventListener('input', () => {
+        qrRangefunc();
+    });
 });

@@ -1,0 +1,13 @@
+{
+    "short_name": "QR Code Maker",
+    "name": "QR Code Maker",
+    "display": "standalone",
+    "start_url": "index.html",
+    "icons": [
+        {
+            "src": "./qr_apple_touch_icon.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        }
+    ]
+}
