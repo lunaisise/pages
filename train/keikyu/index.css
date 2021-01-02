@@ -1,0 +1,278 @@
+@font-face {
+    font-family: "Original Yu Gothic";
+    src: local("Yu Gothic Medium");
+    font-weight: 100;
+}
+@font-face {
+    font-family: "Original Yu Gothic";
+    src: local("Yu Gothic Medium");
+    font-weight: 200;
+}
+@font-face {
+    font-family: "Original Yu Gothic";
+    src: local("Yu Gothic Medium");
+    font-weight: 300;
+}
+@font-face {
+    font-family: "Original Yu Gothic";
+    src: local("Yu Gothic Medium");
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Original Yu Gothic";
+    src: local("Yu Gothic Bold");
+    font-weight: bold;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans CJK JP", "Original Yu Gothic", "Yu Gothic", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Sans Emoji";
+}
+
+body {
+    margin: 0;
+}
+
+header {
+    align-items: center;
+    background-color: #0099cb;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    left: 0;
+    padding: 0 .25rem;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 1.2rem;
+    font-weight: normal;
+    margin: 0;
+}
+
+dl {
+    font-size: .5rem;
+    margin: 0;
+}
+
+dt {
+    text-align: right;
+}
+
+dd {
+    margin: 0;
+}
+
+main {
+    display: flex;
+    width: 100%;
+}
+
+#sub {
+    position: relative;
+}
+
+main > div {
+    width: 50%;
+}
+
+#sub > div {
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+h2 {
+    font-size: 1rem;
+    font-weight: normal;
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+}
+
+.up-side-down {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.stations > li {
+    display: flex;
+    height: 5rem;
+}
+
+#sub .stations > li {
+    flex-direction: row-reverse;
+}
+
+.stations > li > div {
+    width: 50%;
+}
+
+.station {
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    height: 2rem;
+    padding: 0 0 0 1.75rem;
+    position: relative;
+}
+
+.station > i {
+    align-items: center;
+    border: 5px solid #0099cb;
+    border-radius: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: .75rem;
+    font-style: normal;
+    height: 3rem;
+    justify-content: center;
+    left: -.5rem;
+    position: absolute;
+    top: -.5rem;
+    transform: scale(.5);
+    width: 3rem;
+}
+
+.station-number {
+    font-size: 1rem;
+}
+
+.station-name {
+    font-size: .5rem;
+    margin-left: .25rem;
+    text-align: left;
+}
+
+.train-types {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.train-types > li {
+    border-radius: .25rem;
+    color: #fff;
+    font-size: .5rem;
+    margin: 0 0 .25rem .25rem;
+    padding: 0 .25rem;
+}
+
+.train {
+    display: flex;
+    position: relative;
+}
+
+.up-side-down > li > .train {
+    flex-direction: row-reverse;
+}
+
+.train::before {
+    border-bottom: 1px solid #808080;
+    content: '';
+    display: block;
+    height: 1rem;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.train::after {
+    border-right: 4px solid #808080;
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: calc(50% - 2px);
+}
+
+.up-side-down > li:first-child .train::after,
+.stations:not(.up-side-down) > li:last-child .train::after,
+.station-stop {
+    height: 2rem;
+}
+
+.train > div {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2px;
+    position: relative;
+    width: 50%;
+}
+
+.station-stop,
+.station-run {
+    align-items: center;
+    display: flex;
+}
+
+.up > div {
+    justify-content: flex-end;
+}
+
+.up-side-down .up > div {
+    justify-content: flex-start;
+}
+
+.up-side-down .down > div {
+    justify-content: flex-end;
+}
+
+.station-run {
+    height: 3rem;
+}
+
+.train p {
+    align-items: center;
+    color: #fff;
+    display: flex;
+    font-size: .5rem;
+    height: 1rem;
+    justify-content: center;
+    margin: .5rem .05rem;
+    position: relative;
+    width: 1rem;
+}
+
+.up-side-down > li > .train > .down > div > p::before,
+:not(.up-side-down) > li > .train > .up > div > p::before {
+    border-right: .5rem solid transparent;
+    border-bottom: .25rem solid #0099cb;
+    border-left: .5rem solid transparent;
+    content: '';
+    display: block;
+    height: 0;
+    left: 0;
+    position: absolute;
+    top: -.25rem;
+    width: 0;
+}
+
+.up-side-down > li > .train > .up > div > p::before,
+:not(.up-side-down) > li > .train > .down > div > p::after {
+    border-top: .25rem solid #0099cb;
+    border-right: .5rem solid transparent;
+    border-left: .5rem solid transparent;
+    bottom: -.25rem;
+    content: '';
+    display: block;
+    height: 0;
+    left: 0;
+    position: absolute;
+    width: 0;
+}

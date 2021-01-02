@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no", minimal-ui>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>京急列車走行位置 | lunaisise Pages</title>
+<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="./favicon57.png" sizes="57x57">
+<link rel="apple-touch-icon" href="./favicon60.png" sizes="60x60">
+<link rel="apple-touch-icon" href="./favicon72.png" sizes="72x72">
+<link rel="apple-touch-icon" href="./favicon76.png" sizes="76x76">
+<link rel="apple-touch-icon" href="./favicon114.png" sizes="114x114">
+<link rel="apple-touch-icon" href="./favicon120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="./favicon144.png" sizes="144x144">
+<link rel="apple-touch-icon" href="./favicon152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="./favicon180.png" sizes="180x180">
+<link rel="icon" href="./favicon16.png" sizes="16x16">
+<link rel="icon" href="./favicon32.png" sizes="32x32">
+<link rel="icon" href="./favicon48.png" sizes="48x48">
+<link rel="icon" href="./favicon96.png" sizes="96x96">
+<link rel="icon" href="./favicon192.png" sizes="192x192">
+<link rel="stylesheet" href="./index.css">
+</head>
+<body>
+
+<header>
+  <a href="">&lt;</a>
+  <h1>京急列車走行位置</h1>
+  <dl>
+    <dt>データ日時</dt>
+    <dd><span id="yy"></span>-<span id="mt"></span>-<span id="dy"></span> <span id="hh"></span>:<span id="mm"></span>:<span id="ss"></span></dd>
+  </dl>
+</header>
+
+<main>
+  <div id="main">
+    <h2>本線</h2>
+    <ul class="stations"></ul>
+  </div>
+  <div id="sub"></div>
+</main>
+
+<template id="sub-template">
+  <div>
+    <div id="">
+      <h2></h2>
+      <ul class="stations"></ul>
+    </div>
+  </div>
+</template>
+
+<template id="station-template">
+  <ul>
+    <li id="">
+      <div>
+        <button type="button" class="station"><i><span>KK</span><span class="station-number"></span></i><span class="station-name"></span></button>
+        <ul class="train-types"></ul>
+      </div>
+      <div class="train" data-id="">
+        <div class="up">
+          <div class="station-stop"></div>
+          <div class="station-run"></div>
+        </div>
+        <div class="down">
+          <div class="station-stop"></div>
+          <div class="station-run"></div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</template>
+
+<script src="./index.js"></script>
+<script src="./sw.js"></script>
+
+</body>
+</html>
