@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    color: #333;
+}
+
+header {
+    background-color: #fff;
+    left: 0;
+    position: sticky;
+    top: 0;
+    z-index: 9;
+}
+
+h1 {
+    text-align: center;
+}
+
+section {
+    align-items: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 0 1rem 1rem 1rem;
+    display: flex;
+    justify-content: center;
+    margin: 2.5rem 0;
+    padding: 1rem;
+    position: relative;
+}
+
+.burnable {
+    background-color: rgb(255, 209, 209);
+    background-image: url('./image/burnable.png');
+}
+
+.unburnable {
+    background-color: rgb(180, 235, 250);
+    background-image: url('./image//unburnable.png');
+}
+
+.recyclable {
+    background-color: rgb(203, 242, 102);
+    background-image: url('./image/recyclable.png');
+}
+
+section > p {
+    border-radius: .5rem .5rem 0 0;
+    left: 0;
+    margin: 0;
+    padding: .5rem;
+    position: absolute;
+    top: -1.5rem;
+}
+
+.burnable > .date {
+    background-color: rgb(255, 209, 209);
+}
+
+.unburnable > .date {
+    background-color: rgb(180, 235, 250);
+}
+
+.recyclable > .date {
+    background-color: rgb(203, 242, 102);
+}
